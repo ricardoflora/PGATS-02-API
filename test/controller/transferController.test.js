@@ -14,7 +14,7 @@ it('Quando informo ', async () => {
             to: "Pedro",
             amount: 100
         });
-    expect(resposta.status).to.equal(201);
+    expect(resposta.status).to.equal(400);
 });
 
 });
