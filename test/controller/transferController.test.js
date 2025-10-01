@@ -15,6 +15,7 @@ describe('Transfer Controller', () => {
                  amount: 100
                 });
             chai.expect(resposta.status).to.equal(400);
+            chai.expect(resposta.body).to.have.property('error', 'Usuario rementente ou destinario nao encontrado');
         });
     });
 });
