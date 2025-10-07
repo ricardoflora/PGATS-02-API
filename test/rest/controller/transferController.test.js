@@ -3,6 +3,7 @@ const request = require('supertest');
 const sinon = require('sinon');
 const { expect } = require('chai');
 
+
 // Aplicação
 const app = require('../../../app');
 
