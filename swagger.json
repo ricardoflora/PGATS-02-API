@@ -1,0 +1,128 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Transferências",
+    "version": "1.0.0",
+    "description": "API para registro, login, consulta de usuários e transferências."
+  },
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "Registrar novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegister"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuário registrado" },
+          "400": { "description": "Usuário já existe ou dados inválidos" }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login bem-sucedido" },
+          "400": { "description": "Login ou senha inválidos" }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Listar usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/User" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transfer": {
+      "post": {
+        "summary": "Transferir valores",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transfer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Transferência realizada" },
+          "400": { "description": "Transferência não permitida" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserRegister": {
+        "type": "object",
+        "properties": {
+          "login": { "type": "string" },
+          "senha": { "type": "string" },
+          "favorecidos": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["login", "senha"]
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "login": { "type": "string" },
+          "senha": { "type": "string" }
+        },
+        "required": ["login", "senha"]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "login": { "type": "string" },
+          "favorecidos": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "Transfer": {
+        "type": "object",
+        "properties": {
+          "remetente": { "type": "string" },
+          "destinatario": { "type": "string" },
+          "valor": { "type": "number" }
+        },
+        "required": ["remetente", "destinatario", "valor"]
+      }
+    }
+  }
+}
