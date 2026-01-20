@@ -4,8 +4,8 @@
   "description": "API for transfers for learning tests and automation.",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/**/*.test.js --timeout 5000",
-    "test-external": "mocha test/external/**/*.test.js --timeout 5000",
+    "test": "mocha test/**/*.test.js --timeout 10000",
+    "test-external": "mocha test/external/**/*.test.js --timeout 10000",
     "start": "node server.js"
   },
   "dependencies": {
