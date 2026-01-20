@@ -6,7 +6,7 @@ function transfer({ remetente, destinatario, valor }) {
   }
   const sender = getUser(remetente);
   const receiver = getUser(destinatario);
-  if (!sender || !receiver) return { error: 'Usuário não encontrado' };
+  if (!sender || !receiver) return { error: 'Usuário encontrado' };
   const isFavorecido = sender.favorecidos && sender.favorecidos.includes(destinatario);
   if (!isFavorecido && valor >= 5000) {
     return { error: 'Transferência para não favorecido só até R$ 5.000,00' };

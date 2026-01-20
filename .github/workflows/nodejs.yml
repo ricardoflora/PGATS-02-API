@@ -2,15 +2,9 @@ name: Node.js CI
 
 on:
   push:
-<<<<<<< HEAD
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-=======
-    branches: [ "main", "habilitando-pipeline" ]
-  pull_request:
-    branches: [ "main", "habilitando-pipeline" ]
->>>>>>> 79c963a3df4212d37fa755790b60d2716c61da82
 
 jobs:
   build:
