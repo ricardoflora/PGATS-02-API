@@ -12,6 +12,8 @@ describe('Transfer Controller', () => {
                     .post('/transfer')
                     .send({ remetente: 'user1', destinatario: 'user2', valor: 1000 });
                expect(res.status).to.equal(400);
+               expect(res.body).to.have.property('error', 'Usuário não encontrado');
+
           });
     }) ;   
 
