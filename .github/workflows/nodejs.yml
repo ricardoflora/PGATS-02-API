@@ -36,3 +36,7 @@ jobs:
 
     - name: Rodar os testes de API via HTTP 
       run: npm run test-external
+    
+    - name: Wait for API to be ready
+      run: npx wait-on http://localhost:3000 --timeout 20000  \
+    
