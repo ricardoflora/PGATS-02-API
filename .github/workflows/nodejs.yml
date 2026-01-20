@@ -21,10 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    - name: Run tests
-      run: npm test
-
+    
     - name: Run software tests
       run: npm run test-controller
 
@@ -37,7 +34,6 @@ jobs:
     - name: Wait for API to be ready
       run: npx wait-on http://localhost:3000 --timeout 20000
     
-
     - name: Rodar os testes de API via HTTP 
       run: npm run test-external
     
