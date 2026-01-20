@@ -1,13 +1,18 @@
 {
-  "name": "pgats-02-api",
+  "name": "transfers-api",
   "version": "1.0.0",
-  "description": "API de Transferências para aprendizado de testes e automação.",
+  "description": "API for transfers for learning tests and automation.",
   "main": "server.js",
   "scripts": {
+    "test": "mocha test/**/*.test.js --timeout 5000",
     "start": "node server.js"
   },
   "dependencies": {
+    "chai": "^6.2.2",
     "express": "^4.18.2",
+    "mocha": "^11.7.5",
+    "sinon": "^21.0.1",
+    "supertest": "^7.2.2",
     "swagger-ui-express": "^4.6.3"
   }
 }
